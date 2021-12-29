@@ -1,0 +1,62 @@
+[
+    {
+      "id": 1,
+      "name": "Android App",
+      "img": "https://i.ibb.co/3TqR3NF/Android-App.png",
+      "description": "Get your Required Mobile application based on android.We have an excilent and experienced Mobile app developer team."
+    },
+    {
+      "id": 2,
+      "name": "Banner Design",
+      "img": "https://i.ibb.co/F3j6csp/banner-design.jpg",
+      "description": "Who doesn't want an eye catching banner for his/her projects. Get your Banner at the lowest Cost"
+    },
+    {
+      "id": 3,
+      "name": "Digital Marketing",
+      "img": "https://i.ibb.co/r4ZMKL3/digital-marketing.png",
+      "description": "In this era of Digitalization to sell your product or get fame for your organization Digital Marketing is the Easiest and quickest way."
+    },
+    {
+      "id": 4,
+      "name": "Domain-Hosting",
+      "img": "https://i.ibb.co/0QGbWSs/domain-hosting.png",
+      "description": "Get resonable Domain and Hosting for your valuable website. You will get end to end security and required cheakup from our Dev team."
+    },
+    {
+      "id": 5,
+      "name": "E-Commerce Website",
+      "img": "https://i.ibb.co/27gFHC2/E-commerce-website.jpg",
+      "description": "Want an E-Commerce Website at a resonable price ! This is the right place. You can have raw coding website or a wordpress website."
+    },
+    {
+      "id": 6,
+      "name": "FaceBook Marketing",
+      "img": "https://i.ibb.co/DW66PyC/facebook-marketing.webp",
+      "description": "A Facebook page is a great free marketing tool for businesses.It Will seems like something your target audience would enjoy."
+    },
+    {
+      "id": 7,
+      "name": "IOS App",
+      "img": "https://i.ibb.co/mRMKHch/ios-app.jpg",
+      "description": "Get your Required Mobile application based on IOS/Iphone.We have an excilent and experienced Mobile app developer team."
+    },
+    {
+      "id": 8,
+      "name": "Logo Design",
+      "img": "https://i.ibb.co/SsT8h0W/Logo-design.png",
+      "description": "A logo isn't just a tiny piece of art; it's the building block your company needs to build a strong brand identity with.Using a custom logo on various parts of your business, such as website, packaging, label, social media, printed materials, etc."
+    },
+    {
+      "id": 9,
+      "name": "Motion Graphics",
+      "img": "https://i.ibb.co/93GJScw/Motion-graphics.jpg",
+      "description": "Motion Graphics is the most straightforward definition you can get. Many times, it is also called Motion Design, making the relationship between movement and design elements easier to understand."
+    },
+    {
+      "id": 10,
+      "name": "Landing Page",
+      "img": "https://i.ibb.co/1JxT73S/Web-design.jpg",
+      "description": "A landing page is any web page that a consumer can land on, but in the marketing realm, it's usually a standalone page, distinct from your homepage or any other page, that serves a single and focused purpose."
+    }
+  ]
