@@ -13,7 +13,8 @@ const Explore = () => {
     return (
         <div>
             <Navigation></Navigation>
-            <h1 className='mt-5'>Here is Our All Products</h1>
+           <div className="container">
+           <h1 className='mt-5'>Here is Our All Products</h1>
                 <div className='service-card'>
 
                         {
@@ -25,6 +26,7 @@ const Explore = () => {
                             </Service>)
                         }
                 </div>
+           </div>
         </div>
     );
 };
