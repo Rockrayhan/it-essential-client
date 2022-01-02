@@ -2,8 +2,8 @@ import React from 'react';
 
 const Contact = () => {
     return (
-        <div>
-<div class="container py-4 mb-5">
+        <div className='container'>
+<div class="py-4 mb-5">
     <h1 className='mb-5 fw-bold'>Contact us</h1>
   <form id="contactForm">
     <div class="mb-3">
