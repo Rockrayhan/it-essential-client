@@ -7,6 +7,44 @@ import Navigation from '../Navigation/Navigation';
 const Purchase = () => {
     const {user} = useAuth() ;
 
+    const initialInfo = {displayName: user.displayName, email : user.email, phone : '', address: '', productName: '' }
+    const [orderInfo, setOrderInfo] = useState(initialInfo) ;
+
+    const handleOnBlur = e => {
+      const field = e.target.name ;
+      const value = e.target.value ;
+      const newInfo = {...orderInfo} ;
+      newInfo[field] = value ;
+      setOrderInfo(newInfo) ;
+    }
+
+    const handleOrderSubmit = e => {
+      // collect data
+      const order = {
+        ...orderInfo,
+      }
+      //send data to the server
+      console.log(order);
+      fetch('http://localhost:5000/orders', {
+        method: 'POST',
+        headers: {
+          'content-type' : 'application/json'
+        },
+        body: JSON.stringify(order)
+      })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+      })
+
+      alert('order confirmed') ;
+      e.preventDefault();
+    }
+
+    
+   
+    
+
     const { id } = useParams();
     console.log(id);
 
@@ -37,14 +75,14 @@ const Purchase = () => {
                 <h3>Purchase Details</h3>
                 <br />
 
-                <form className="mb-5">
+                <form className="mb-5" onSubmit={handleOrderSubmit}>
         <TextField
           sx={{width:'70%' , m:1}}
           id="outlined-size-small"
-          defaultValue="product Name"
+          defaultValue="Enter product Name"
           size="small"
           name="productName"
-        //   onBlur={handleOnBlur}
+          onBlur={handleOnBlur}
           />
         <TextField
           sx={{width:'70%' , m:1}}
@@ -52,15 +90,15 @@ const Purchase = () => {
           defaultValue={user.displayName}
           size="small"
           name="displayName"
-        //   onBlur={handleOnBlur}
+          onBlur={handleOnBlur}
           />
         <TextField
           sx={{width:'70%' , m:1}}
           id="outlined-size-small"
-          defaultValue='Phone number'
+          defaultValue='Enter Phone number'
           size="small"
           name="phone"
-        //   onBlur={handleOnBlur}
+          onBlur={handleOnBlur}
           />
         <TextField
           sx={{width:'70%' , m:1}}
@@ -68,15 +106,15 @@ const Purchase = () => {
           defaultValue={user.email}
           size="small"
           name="email"
-        //   onBlur={handleOnBlur}
+          onBlur={handleOnBlur}
           />
         <TextField
           sx={{width:'70%' , m:1}}
           id="outlined-size-small"
-          defaultValue='Address'
+          defaultValue='Enter Address'
           size="small"
           name="address"
-        //   onBlur={handleOnBlur}
+          onBlur={handleOnBlur}
           />
         <br />
         <Button type="submit" variant="contained">Order Now</Button>
