@@ -6,6 +6,7 @@ import Purchase from './Components/Purchase/Purchase';
 import Login from './Components/Login/Login';
 import Register from './Components/Register/Register';
 import AuthProvider from './Context/AuthProvider/AuthProvider';
+import PrivateRoute from './Components/Login/PrivateRoute/PrivateRoute';
 
 function App() {
   return (
@@ -14,7 +15,10 @@ function App() {
      <Routes>
     <Route path='/' element={<Home/>} />
     <Route path='home' element={<Home/>} />
-    <Route path='explore' element={<Explore/>} />
+   
+    <Route path='explore' element={ <PrivateRoute>  <Explore/></PrivateRoute>  }/>
+     
+  
     <Route path='purchase/:id' element={<Purchase/>} />
     <Route path='login' element={<Login/>} />
     <Route path='register' element={<Register/>} />

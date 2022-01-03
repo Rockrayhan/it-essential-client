@@ -11,10 +11,26 @@ const useFirebase =() => {
 
     const auth = getAuth();
 
-    const registerUser= (email, password)=>{
+    const registerUser= (email, password, name ,navigate)=>{
         setIsLoading(true)
         createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
+
+            const newUser = {email, displayName: name} ;
+            setUser(newUser);
+
+            // send name to firebase after creation
+            updateProfile(auth.currentUser, {
+                displayName: name 
+              }).then(() => {
+                // Profile updated!
+                // ...
+              }).catch((error) => {
+                // An error occurred
+                // ...
+              });
+            navigate.replace('/');
+
             // Signed in 
             const user = userCredential.user;
             // ...
@@ -28,11 +44,14 @@ const useFirebase =() => {
     }
 
 
-const loginUser = (email, password) => {
+const loginUser = (email, password, location, navigate) => {
     setIsLoading(true)
     signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      // Signed in 
+
+      const destination = location?.state?.from || '/' ;
+      navigate.replace(destination) ;
+
       const user = userCredential.user;
       // ...
     })

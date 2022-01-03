@@ -1,15 +1,15 @@
-import { Button, Container, Grid, LinearProgress, TextField, Typography } from '@mui/material';
+import { Button, Container, Grid, LinearProgress, TextField } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 
 const Register = () => {
-    const [loginData, setLoginData] = useState({}) ;
+    const [loginData, setLoginData] = useState({});
+    const navigate = useNavigate();
+    const { user, registerUser, isLoading } = useAuth();
 
-    const {user, registerUser, isLoading} = useAuth();
-
-    const handleOnChange = e => {
+    const handleOnBlur = e => {
         const field = e.target.name;
         const value = e.target.value;
         console.log(field, value);
@@ -25,64 +25,70 @@ const Register = () => {
             alert('Your Password Did Not Match');
             return
         }
-        registerUser(loginData.email, loginData.password);
+        registerUser(loginData.email, loginData.password, loginData.name, navigate);
         e.preventDefault();
         alert('Registration SuccessFull..!!');
     }
 
-
-
-
-
-
     return (
-       <Container>
+        <Container>
             <Box className="mt-5"  >
-            <Grid item sm={12} md={12} lg={12}>
-                <h1>Register Please</h1>
-                 { !isLoading && <form onSubmit={handleLoginSubmit}>
-                    <TextField
-                        sx={{ width: '75%', m: 2 }}
-                        id="standard-basic"
-                        label="Your Email"
-                        variant="standard"
-                        name="email"
-                        type='email'
-                        onBlur={handleOnChange}
-                    />
-                    <br />
-                    <TextField
-                        sx={{ width: '75%', m: 2 }}
-                        id="standard-basic"
-                        label="Your Password"
-                        variant="standard"
-                        type="password"
-                        name="password"
-                        onBlur={handleOnChange}
+                <Grid item sm={12} md={12} lg={12}>
+                    <h1>Register Please</h1>
+                    {!isLoading && <form onSubmit={handleLoginSubmit}>
 
-                    />
-                    <TextField
-                        sx={{ width: '75%', m: 2 }}
-                        id="standard-basic"
-                        label="Resubmit Your Password"
-                        variant="standard"
-                        type="password"
-                        name="password2"
-                        onBlur={handleOnChange}
+                        <TextField
+                            sx={{ width: '75%', m: 2 }}
+                            id="standard-basic"
+                            label="Your Name"
+                            variant="standard"
+                            name="name"
+                            type="text"
+                            onBlur={handleOnBlur}
+                        />
 
-                    />
-                    <br />
+                        <TextField
+                            sx={{ width: '75%', m: 2 }}
+                            id="standard-basic"
+                            label="Your Email"
+                            variant="standard"
+                            name="email"
+                            type='email'
+                            onBlur={handleOnBlur}
+                        />
+                        <br />
+                        <TextField
+                            sx={{ width: '75%', m: 2 }}
+                            id="standard-basic"
+                            label="Your Password"
+                            variant="standard"
+                            type="password"
+                            name="password"
+                            onBlur={handleOnBlur}
 
-                    <Button sx={{ width: '50%', m: 2 }} variant="contained" type="submit"> Register </Button>
-                    <br />
-                    <NavLink style={{ textDecoration: "none" }} to="/login"> <Button variant="text"> Already registered ? please Login</Button> </NavLink>
+                        />
+                        <TextField
+                            sx={{ width: '75%', m: 2 }}
+                            id="standard-basic"
+                            label="Resubmit Your Password"
+                            variant="standard"
+                            type="password"
+                            name="password2"
+                            onBlur={handleOnBlur}
 
-                </form> }
-                { isLoading &&  <LinearProgress /> }
-                
-            </Grid>
-        </Box>
-       </Container>
+                        />
+                        <br />
+
+                        <Button sx={{ width: '50%', m: 2 }} variant="contained" type="submit"> Register </Button>
+                        <br />
+                        <NavLink style={{ textDecoration: "none" }} to="/login"> <Button variant="text"> Already registered ? please Login</Button> </NavLink>
+
+                    </form>}
+                    {isLoading && <LinearProgress />}
+
+                </Grid>
+            </Box>
+        </Container>
     );
 };
 

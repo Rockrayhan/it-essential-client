@@ -1,12 +1,16 @@
 import { Button, Container, Grid, LinearProgress, TextField, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 
 const Login = () => {
     const [loginData, setLoginData] = useState({}) ;
     const {user, loginUser, isLoading} = useAuth() ;
+
+    const location = useLocation();
+    const navigate = useNavigate() ;
+
 
     const handleOnChange = e => {
         const field = e.target.name;
@@ -19,7 +23,7 @@ const Login = () => {
 
 
     const handleLoginSubmit = e => {
-        loginUser(loginData.email, loginData.password)
+        loginUser(loginData.email, loginData.password, location, navigate) ;
         e.preventDefault();
         alert('Login SuccessFull');
     }
@@ -30,6 +34,9 @@ const Login = () => {
             <Grid item sm={12} md={12} lg={12}>
                 <h1>Please Login</h1>
               { !isLoading && <form onSubmit={handleLoginSubmit}>
+
+                    
+                  
                     <TextField
                         sx={{ width: '75%', m: 2 }}
                         id="standard-basic"

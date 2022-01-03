@@ -19,7 +19,7 @@ export default function Navigation() {
         <Button variant="contained">Home</Button>
         </NavLink>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1, fontWeight: 'bold' }}>
-            IT Essential
+            IT Essentials
           </Typography>
 
         {
