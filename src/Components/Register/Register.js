@@ -1,10 +1,13 @@
-import { Button, Container, Grid, TextField, Typography } from '@mui/material';
+import { Button, Container, Grid, LinearProgress, TextField, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import useAuth from '../../Hooks/useAuth';
 
 const Register = () => {
-    const [loginData, setLoginData] = useState({})
+    const [loginData, setLoginData] = useState({}) ;
+
+    const {user, registerUser, isLoading} = useAuth();
 
     const handleOnChange = e => {
         const field = e.target.name;
@@ -22,17 +25,22 @@ const Register = () => {
             alert('Your Password Did Not Match');
             return
         }
-
+        registerUser(loginData.email, loginData.password);
         e.preventDefault();
-        alert('Login SuccessFull');
+        alert('Registration SuccessFull..!!');
     }
+
+
+
+
+
 
     return (
        <Container>
             <Box className="mt-5"  >
             <Grid item sm={12} md={12} lg={12}>
                 <h1>Register Please</h1>
-                {/*  {!isLoading && */} <form onSubmit={handleLoginSubmit}>
+                 { !isLoading && <form onSubmit={handleLoginSubmit}>
                     <TextField
                         sx={{ width: '75%', m: 2 }}
                         id="standard-basic"
@@ -65,12 +73,13 @@ const Register = () => {
                     />
                     <br />
 
-                    <Button sx={{ width: '50%', m: 2 }} variant="contained" type="submit"> Login </Button>
+                    <Button sx={{ width: '50%', m: 2 }} variant="contained" type="submit"> Register </Button>
                     <br />
                     <NavLink style={{ textDecoration: "none" }} to="/login"> <Button variant="text"> Already registered ? please Login</Button> </NavLink>
 
-                </form>  {/* } */}
-                {/* {isLoading && <LinearProgress />} */}
+                </form> }
+                { isLoading &&  <LinearProgress /> }
+                
             </Grid>
         </Box>
        </Container>
