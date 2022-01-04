@@ -1,6 +1,7 @@
 import { Container, Grid, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import useAuth from '../../../Hooks/useAuth'
+import Navigation from '../../Navigation/Navigation';
 const Myorders = () => {
     const { user } = useAuth();
     const [orders, setOrders] = useState([]);
@@ -16,10 +17,9 @@ const Myorders = () => {
 
     return (
         <div>
-
-<Grid container spacing={2}>
-<Grid item xs={12}>
-<h1>  {user.displayName} Orders : {orders.length}</h1>
+            <Navigation></Navigation>
+<div className="container">
+<h1>  {user.displayName} Has {orders.length} Orders </h1>
 
 <TableContainer component={Paper}>
     <Table aria-label="My Orders table">
@@ -50,12 +50,20 @@ const Myorders = () => {
         </TableBody>
     </Table>
 </TableContainer>
-</Grid>
+</div>
 
 
-            </Grid>
+</div>
+
+
+
+
+
+
+
+           
             
-        </div>
+        
     );
 };
 

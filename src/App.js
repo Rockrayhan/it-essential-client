@@ -10,6 +10,9 @@ import PrivateRoute from './Components/Login/PrivateRoute/PrivateRoute';
 import Dashboard from './Components/Dashboard/Dashboard/Dashboard';
 import Payment from './Components/Dashboard/Payment/Payment';
 import Myorders from './Components/Dashboard/MyOrders/Myorders';
+import MakeAdmin from './Components/Dashboard/MakeAdmin/MakeAdmin';
+import AddProduct from './Components/Dashboard/AddProduct/AddProduct';
+import ManageProduct from './Components/Dashboard/ManageProduct/ManageProduct';
 
 function App() {
   return (
@@ -27,6 +30,9 @@ function App() {
 
     <Route path='payment' element={<PrivateRoute><Payment/></PrivateRoute>} />
     <Route path='myorders' element={<PrivateRoute><Myorders/></PrivateRoute>} />
+    <Route path='makeadmin' element={<PrivateRoute><MakeAdmin/></PrivateRoute>} />
+    <Route path='addproduct' element={<PrivateRoute><AddProduct/></PrivateRoute>} />
+    <Route path='manageproduct' element={<PrivateRoute><ManageProduct/></PrivateRoute>} />
 
     <Route path='login' element={<Login/>} />
     <Route path='register' element={<Register/>} />

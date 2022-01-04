@@ -27,6 +27,9 @@ const drawerWidth = 200;
 function Dashboard(props) {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
+    const { admin, user, logOut } = useAuth();
+
+
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
@@ -38,16 +41,31 @@ function Dashboard(props) {
             <Divider />
             <h6><b> <u>DashBoard Menu</u> </b></h6>
             <List>
-                
-                <Link to='/payment'> <Button variant='contained'> Payment</Button>  </Link>
-                <Link to='/myorders'> <Button variant='contained'> My Orders</Button></Link>
+
+                {
+                    !admin && <Box>
+
+
+                        <Link to='/payment'> <Button variant='contained'> Payment</Button>  </Link>
+                        <Link to='/myorders'> <Button sx={{marginTop:'10px', marginBottom:'10px'}} variant='contained'> My Orders</Button></Link>
+
+
+                    </Box>
+                }
+                {admin && <Box>
+
+                    <Link to='/makeadmin'> <Button variant='contained'> Make Admin</Button></Link>
+                    <Link to='/manageproduct'> <Button sx={{marginTop:'10px', marginBottom:'10px'}} variant='contained'> Manage Products</Button></Link>
+                    <Link to='/addproduct'> <Button variant='contained'> Add Products</Button></Link>
+
+                </Box>}
             </List>
 
         </div>
     );
 
     const container = window !== undefined ? () => window().document.body : undefined;
-    const { user, logOut } = useAuth();
+  
     return (
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
@@ -69,24 +87,24 @@ function Dashboard(props) {
                         <MenuIcon />
                     </IconButton>
                     <Link to='/'><Button variant="contained">Home</Button></Link>
-                    <Typography sx={{mx:'auto', fontWeight:'bold'}} variant="h6" noWrap component="div">
+                    <Typography sx={{ mx: 'auto', fontWeight: 'bold' }} variant="h6" noWrap component="div">
                         DashBoard
                     </Typography>
 
                     {
-            user?.email ?
+                        user?.email ?
 
-              <Box>
+                            <Box>
 
-                <Button onClick={logOut} variant="contained">Logout</Button>
+                                <Button onClick={logOut} variant="contained">Logout</Button>
 
-              </Box>
+                            </Box>
 
-              :
-              <Link to='/login'>
-                <Button variant="contained">Login</Button>
-              </Link>
-          }
+                            :
+                            <Link to='/login'>
+                                <Button variant="contained">Login</Button>
+                            </Link>
+                    }
 
 
                 </Toolbar>
@@ -127,18 +145,18 @@ function Dashboard(props) {
                 component="main"
                 sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
             >
-<Toolbar />
-<Typography paragraph>
-    <Grid container spacing={2}>
-        <Grid item xs={8}>
-                        {/* <Outlet/> */}
+                <Toolbar />
+                <Typography paragraph>
+                    <Grid container spacing={2}>
+                        <Grid item xs={8}>
+                            {/* <Outlet/> */}
                         </Grid>
 
                     </Grid>
                 </Typography>
 
             </Box>
-            
+
         </Box>
     );
 }
