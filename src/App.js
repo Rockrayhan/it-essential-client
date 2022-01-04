@@ -8,6 +8,8 @@ import Register from './Components/Register/Register';
 import AuthProvider from './Context/AuthProvider/AuthProvider';
 import PrivateRoute from './Components/Login/PrivateRoute/PrivateRoute';
 import Dashboard from './Components/Dashboard/Dashboard/Dashboard';
+import Payment from './Components/Dashboard/Payment/Payment';
+import Myorders from './Components/Dashboard/MyOrders/Myorders';
 
 function App() {
   return (
@@ -18,7 +20,14 @@ function App() {
     <Route path='home' element={<Home/>} />
     <Route path='explore' element={<Explore/> }/>
     <Route path='purchase/:id' element={<PrivateRoute><Purchase/></PrivateRoute>} />
-    <Route path='dashboard' element={<PrivateRoute><Dashboard/></PrivateRoute>} />
+
+    <Route path='dashboard' element={<PrivateRoute><Dashboard/></PrivateRoute>}> 
+
+    </Route>
+
+    <Route path='payment' element={<PrivateRoute><Payment/></PrivateRoute>} />
+    <Route path='myorders' element={<PrivateRoute><Myorders/></PrivateRoute>} />
+
     <Route path='login' element={<Login/>} />
     <Route path='register' element={<Register/>} />
       </Routes>

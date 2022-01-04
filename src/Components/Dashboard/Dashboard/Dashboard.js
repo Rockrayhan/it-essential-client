@@ -16,9 +16,13 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Myorders from '../MyOrders/Myorders';
-import { Grid } from '@mui/material';
+import { Button, Grid } from '@mui/material';
+import { Link, Outlet } from 'react-router-dom';
+import useAuth from '../../../Hooks/useAuth';
 
 const drawerWidth = 200;
+
+
 
 function Dashboard(props) {
     const { window } = props;
@@ -32,22 +36,18 @@ function Dashboard(props) {
         <div>
             <Toolbar />
             <Divider />
+            <h6><b> <u>DashBoard Menu</u> </b></h6>
             <List>
-                {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>
-                            {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                        </ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
+                
+                <Link to='/payment'> <Button variant='contained'> Payment</Button>  </Link>
+                <Link to='/myorders'> <Button variant='contained'> My Orders</Button></Link>
             </List>
 
         </div>
     );
 
     const container = window !== undefined ? () => window().document.body : undefined;
-
+    const { user, logOut } = useAuth();
     return (
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
@@ -68,9 +68,27 @@ function Dashboard(props) {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="h6" noWrap component="div">
+                    <Link to='/'><Button variant="contained">Home</Button></Link>
+                    <Typography sx={{mx:'auto', fontWeight:'bold'}} variant="h6" noWrap component="div">
                         DashBoard
                     </Typography>
+
+                    {
+            user?.email ?
+
+              <Box>
+
+                <Button onClick={logOut} variant="contained">Logout</Button>
+
+              </Box>
+
+              :
+              <Link to='/login'>
+                <Button variant="contained">Login</Button>
+              </Link>
+          }
+
+
                 </Toolbar>
             </AppBar>
             <Box
@@ -109,17 +127,18 @@ function Dashboard(props) {
                 component="main"
                 sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
             >
-                <Toolbar />
-                <Typography paragraph>
-                    <Grid container spacing={2}>
-                        <Grid item xs={8}>
-                            <Myorders></Myorders>
+<Toolbar />
+<Typography paragraph>
+    <Grid container spacing={2}>
+        <Grid item xs={8}>
+                        {/* <Outlet/> */}
                         </Grid>
 
                     </Grid>
                 </Typography>
 
             </Box>
+            
         </Box>
     );
 }
