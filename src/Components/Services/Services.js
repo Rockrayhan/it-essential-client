@@ -5,7 +5,7 @@ import './Services.css'
 const Services = () => {
     const [services, setServices] = useState([]);
     useEffect(() => {
-        fetch('fakedata.json')
+        fetch('http://localhost:5000/services')
             .then(res => res.json())
             .then(data => setServices(data))
     }, [])
@@ -13,12 +13,13 @@ const Services = () => {
     return (
         <div className='container mt-5'>
             <h1 className='fw-bold'>Our Services</h1>
+           <h6> (Same price same Quality)</h6>
             <div className='service-card'>
 
                 {
                     services.map(service => <Service
                         services={service}
-                        key={service.id}
+                        key={service._id}
                     ></Service>).slice(4)
                 }
 

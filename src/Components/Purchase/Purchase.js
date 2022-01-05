@@ -7,6 +7,8 @@ import Navigation from '../Navigation/Navigation';
 const Purchase = () => {
     const {user} = useAuth() ;
 
+    const price = 10000 ;
+
     const initialInfo = {displayName: user.displayName, email : user.email, phone : '', address: '', productName: '' }
     const [orderInfo, setOrderInfo] = useState(initialInfo) ;
 
@@ -18,10 +20,30 @@ const Purchase = () => {
       setOrderInfo(newInfo) ;
     }
 
+
+    // get data
+    const { id } = useParams();
+    console.log(id);
+
+    const [data, setData] = useState({})
+    useEffect(() => {
+        fetch(`http://localhost:5000/services/${id}`)
+            .then(res => res.json())
+            .then(data => setData(data))
+    }, []);
+
+    console.log(data)
+    // const exactItem = data.filter(td => td.id == id);
+    // console.log(exactItem[0]?.name);
+
+
+
+
     const handleOrderSubmit = e => {
       // collect data
       const order = {
         ...orderInfo,
+        price,
       }
       //send data to the server
       console.log(order);
@@ -41,32 +63,14 @@ const Purchase = () => {
       e.preventDefault();
     }
 
-    
-   
-    
-
-    const { id } = useParams();
-    console.log(id);
-
-    const [data, setData] = useState([])
-    useEffect(() => {
-        fetch('/fakedata.json')
-            .then(res => res.json())
-            .then(data => setData(data))
-    }, []);
-
-    const exactItem = data.filter(td => td.id == id);
-    console.log(exactItem[0]?.name);
-
-
     return (
         <div>
             <Navigation></Navigation>
             <div className="container">
-                <h1 className='mt-5 mb-5 text-primary fw-bold'>Welcome to purchase page</h1>
-                <h4>Product Name : {exactItem[0]?.name} </h4>
-                <h6 className='mt-3 mb-3'>Description:  {exactItem[0]?.description} </h6>
-                <img style={{ width: '40%' }} src={exactItem[0]?.img} alt="" />
+                <h1 className='mt-5 mb-5 text-primary fw-bold'>Welcome to purchase page  </h1>
+                <h4>Product Name : {data.name} </h4>
+                <h6 className='mt-3 mb-3'>Description:  {data.description} </h6>
+                <img style={{ width: '40%' }} src={data.img} alt="" />
 
                 <br />
                 <br />
@@ -79,7 +83,7 @@ const Purchase = () => {
         <TextField
           sx={{width:'70%' , m:1}}
           id="outlined-size-small"
-          defaultValue="Enter product Name"
+          defaultValue='Enter Product name'
           size="small"
           name="productName"
           onBlur={handleOnBlur}
@@ -111,12 +115,12 @@ const Purchase = () => {
         <TextField
           sx={{width:'70%' , m:1}}
           id="outlined-size-small"
-          defaultValue='Enter Address'
+          defaultValue={price}
           size="small"
-          name="address"
           onBlur={handleOnBlur}
+          disabled
           />
-        <br />
+          <br />
         <Button type="submit" variant="contained">Order Now</Button>
 
 

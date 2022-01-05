@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 
 const Service = (props) => {
   
-    const { name, img, description, id } = props.services;
+    const { name, img, description, _id, price } = props.services;
     
     return (
         <div>
@@ -40,12 +40,15 @@ const Service = (props) => {
         <Typography gutterBottom variant="h5" component="div">
          {name}
         </Typography>
+        <Typography gutterBottom variant="h6" component="div">
+        Price: {price}
+        </Typography>
         <Typography variant="body2" color="text.secondary">
           {description}
         </Typography>
       </CardContent>
       <CardActions>
-        <Link sx={{mx:'auto'}} to={`/purchase/${id}`}>
+        <Link sx={{mx:'auto'}} to={`/purchase/${_id}`}>
         <Button variant='contained'>Purchase</Button></Link>
       </CardActions>
     </Card>

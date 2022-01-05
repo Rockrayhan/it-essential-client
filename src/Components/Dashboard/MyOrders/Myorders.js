@@ -30,6 +30,7 @@ const Myorders = () => {
                 <TableCell align="right">Phone no</TableCell>
                 <TableCell align="right">Address</TableCell>
                 <TableCell align="right">Product Name</TableCell>
+                <TableCell align="right">Price</TableCell>
             </TableRow>
         </TableHead>
         <TableBody>
@@ -45,6 +46,7 @@ const Myorders = () => {
                     <TableCell align="right">{row.phone}  </TableCell>
                     <TableCell align="right">{row.address}</TableCell>
                     <TableCell align="right">{row.productName}</TableCell>
+                    <TableCell align="right">{row.price}</TableCell>
                 </TableRow>
             ))}
         </TableBody>

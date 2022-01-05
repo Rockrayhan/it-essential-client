@@ -5,7 +5,7 @@ import Service from '../Service/Service';
 const Explore = () => {
     const[services,setServices] = useState([]) ;
     useEffect(  ()=>{
-        fetch('fakedata.json')
+        fetch('http://localhost:5000/services')
         .then(res=>res.json())
         .then(data=>setServices(data))
     } ,[])
@@ -15,6 +15,7 @@ const Explore = () => {
             <Navigation></Navigation>
            <div className="container">
            <h1 className='mt-5'>Here is Our All Products</h1>
+           <h6> (Same price same Quality)</h6>
                 <div className='service-card'>
 
                         {

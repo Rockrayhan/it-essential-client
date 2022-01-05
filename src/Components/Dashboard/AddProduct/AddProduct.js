@@ -18,6 +18,7 @@ const AddProduct = () => {
 
     }
 
+    const price = 10000 ;
     return (
         <div>
             <Navigation></Navigation>
@@ -27,6 +28,7 @@ const AddProduct = () => {
             <form onSubmit={handleSubmit(onSubmit)}>
                 <input {...register("name", { required: true, maxLength: 20 })} placeholder="Name" />
                 <textarea {...register("description")} placeholder="Description" />
+                <input type='number' {...register("price")} placeholder={price} ></input>
                 <input {...register("img")} placeholder="img url" />
 
                 <input type="submit" />
