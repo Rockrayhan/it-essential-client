@@ -27,7 +27,7 @@ const Purchase = () => {
 
     const [data, setData] = useState({})
     useEffect(() => {
-        fetch(`http://localhost:5000/services/${id}`)
+        fetch(`https://mysterious-scrubland-98995.herokuapp.com/services/${id}`)
             .then(res => res.json())
             .then(data => setData(data))
     }, []);
@@ -47,7 +47,7 @@ const Purchase = () => {
       }
       //send data to the server
       console.log(order);
-      fetch('http://localhost:5000/orders', {
+      fetch('https://mysterious-scrubland-98995.herokuapp.com/orders', {
         method: 'POST',
         headers: {
           'content-type' : 'application/json'

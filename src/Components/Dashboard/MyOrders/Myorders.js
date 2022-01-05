@@ -9,7 +9,7 @@ const Myorders = () => {
 
 
     useEffect(() => {
-        const url = `http://localhost:5000/orders?email=${user.email}`
+        const url = `https://mysterious-scrubland-98995.herokuapp.com/orders?email=${user.email}`
         fetch(url)
             .then(res => res.json())
             .then(data => setOrders(data));

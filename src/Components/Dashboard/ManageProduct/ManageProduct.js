@@ -6,7 +6,7 @@ const ManageProduct = () => {
 
     const [data, setData] = useState([])
     useEffect(  ()=>{
-        fetch('http://localhost:5000/services')
+        fetch('https://mysterious-scrubland-98995.herokuapp.com/services')
         .then(res=>res.json())
         .then(data=>setData(data))
     } ,[])
@@ -18,7 +18,7 @@ const ManageProduct = () => {
 
         if (proceed) {
             window.location.reload();
-            const url = `http://localhost:5000/services/${id}` ;
+            const url = `https://mysterious-scrubland-98995.herokuapp.com/services/${id}` ;
         fetch(url, {
             method: 'DELETE'
         })
