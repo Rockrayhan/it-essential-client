@@ -33,7 +33,7 @@ const useFirebase = () => {
           // An error occurred
           // ...
         });
-        navigate.replace('/');
+        navigate('/');
 
         // Signed in 
         const user = userCredential.user;
@@ -54,7 +54,7 @@ const useFirebase = () => {
       .then((userCredential) => {
 
         const destination = location?.state?.from || '/';
-        navigate.replace(destination);
+        navigate(destination);
 
         const user = userCredential.user;
         // ...
