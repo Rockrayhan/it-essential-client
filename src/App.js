@@ -28,11 +28,12 @@ function App() {
 
     </Route>
 
-    <Route path='payment' element={<PrivateRoute><Payment/></PrivateRoute>} />
+    <Route path='payment/:orderId' element={<PrivateRoute><Payment/></PrivateRoute>} />
     <Route path='myorders' element={<PrivateRoute><Myorders/></PrivateRoute>} />
     <Route path='makeadmin' element={<PrivateRoute><MakeAdmin/></PrivateRoute>} />
     <Route path='addproduct' element={<PrivateRoute><AddProduct/></PrivateRoute>} />
     <Route path='manageproduct' element={<PrivateRoute><ManageProduct/></PrivateRoute>} />
+    
 
     <Route path='login' element={<Login/>} />
     <Route path='register' element={<Register/>} />

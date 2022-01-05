@@ -30,6 +30,9 @@ function Dashboard(props) {
     const { admin, user, logOut } = useAuth();
 
 
+    const paymentAlert = () => {
+        alert('Please Go to MY Orders Page and Make Payment')
+    }
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
@@ -46,7 +49,7 @@ function Dashboard(props) {
                     !admin && <Box>
 
 
-                        <Link to='/payment'> <Button variant='contained'> Payment</Button>  </Link>
+                        <Button onClick={paymentAlert} variant='contained'> Payment</Button>  
                         <Link to='/myorders'> <Button sx={{marginTop:'10px', marginBottom:'10px'}} variant='contained'> My Orders</Button></Link>
 
 

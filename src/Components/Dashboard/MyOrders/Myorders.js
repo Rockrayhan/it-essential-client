@@ -1,5 +1,6 @@
 import { Container, Grid, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth'
 import Navigation from '../../Navigation/Navigation';
 const Myorders = () => {
@@ -31,12 +32,13 @@ const Myorders = () => {
                 <TableCell align="right">Address</TableCell>
                 <TableCell align="right">Product Name</TableCell>
                 <TableCell align="right">Price</TableCell>
+                <TableCell align="right">Action</TableCell>
             </TableRow>
         </TableHead>
         <TableBody>
             {orders.map((row) => (
                 <TableRow
-                    key={row.id}
+                    key={row._id}
                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                 >
                     <TableCell component="th" scope="row">
@@ -47,6 +49,10 @@ const Myorders = () => {
                     <TableCell align="right">{row.address}</TableCell>
                     <TableCell align="right">{row.productName}</TableCell>
                     <TableCell align="right">{row.price}</TableCell>
+                    <TableCell align="right">{row.payment ?'paid' :  
+                    
+                    <Link to={`/payment/${row._id}`}>  <button>pay</button>   </Link>
+                    }</TableCell>
                 </TableRow>
             ))}
         </TableBody>

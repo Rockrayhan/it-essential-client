@@ -71,9 +71,9 @@ const ManageProduct = () => {
       </CardContent>
       <CardActions>
         
-        {/* <Button onClick={() => handleDelete (product._id) }  variant='contained' sx={{mx:'auto'}} color="error">Delete</Button> */}
-        <button
-                        onClick={() => handleDelete (product._id) } className="btn btn-danger"> Delete </button>
+        <Button onClick={() => handleDelete (product._id) }  variant='contained' sx={{mx:'auto'}} color="error">Delete</Button>
+        {/* <button
+                        onClick={() => handleDelete (product._id) } className="btn btn-danger"> Delete </button> */}
       </CardActions>
     </Card>
     </Container>

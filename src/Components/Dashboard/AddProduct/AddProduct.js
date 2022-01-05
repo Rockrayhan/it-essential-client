@@ -1,13 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navigation from '../../Navigation/Navigation';
 import { useForm } from "react-hook-form";
 import axios from 'axios';
 
 
 const AddProduct = () => {
+    // const [image, setImage] = useState(null)
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         console.log(data);
+
+
+        // if (!image) {
+        //     return;
+        // }
+        // const formData = new FormData();
+        // formData.append('image',image);
+    
+
         axios.post('http://localhost:5000/services', data)
             .then(res => {
                 if (res.data.insertedId) {
@@ -16,7 +26,12 @@ const AddProduct = () => {
                 }
             })
 
+            
+    
+
     }
+
+
 
     const price = 10000 ;
     return (
@@ -30,6 +45,9 @@ const AddProduct = () => {
                 <textarea {...register("description")} placeholder="Description" />
                 <input type='number' {...register("price")} placeholder={price} ></input>
                 <input {...register("img")} placeholder="img url" />
+                {/* <input {...register("img")}  type="file" name='picture'
+                onChange={e=>setImage(e.target.files[0])}
+                /> */}
 
                 <input type="submit" />
             </form>
