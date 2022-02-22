@@ -11,10 +11,10 @@ const Services = () => {
     }, [])
 
     return (
-        <div className='container mt-5'>
+        <div className='container  mt-5'>
             <h1 className='fw-bold'>Our Services</h1>
            <h6> (Same price same Quality)</h6>
-            <div className='service-card'>
+            <div className='row service-card d-flex justify-content-evenly'>
 
                 {
                     services.map(service => <Service
