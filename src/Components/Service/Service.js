@@ -14,7 +14,7 @@ const Service = (props) => {
     
     return (
         <div className='col-lg-6'>
-            <Container>
+          
             {/* <img src={img} alt="" />
     <h5> {name} </h5>
     <p> {description}  </p> */}
@@ -29,7 +29,7 @@ const Service = (props) => {
                     </div>
             </div> */}
 
-<Card sx={{ maxWidth: 345, my:'20px'}}>
+<Card className='img-fluid' sx={{ maxWidth: 345, my:'20px'}}>
       <CardMedia
         component="img"
         height="140"
@@ -52,7 +52,7 @@ const Service = (props) => {
         <Button variant='contained'>Purchase</Button></Link>
       </CardActions>
     </Card>
-    </Container>
+    
         </div>
     );
 };

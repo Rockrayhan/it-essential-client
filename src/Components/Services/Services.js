@@ -1,4 +1,3 @@
-import { Grid } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import Service from '../Service/Service';
 import './Services.css'
@@ -11,10 +10,10 @@ const Services = () => {
     }, [])
 
     return (
-        <div className='container  mt-5'>
+        <div className='container mt-5'>
             <h1 className='fw-bold'>Our Services</h1>
            <h6> (Same price same Quality)</h6>
-            <div className='row service-card d-flex justify-content-evenly'>
+            <div className='row service-card justify-content-evenly ms-5'>
 
                 {
                     services.map(service => <Service
