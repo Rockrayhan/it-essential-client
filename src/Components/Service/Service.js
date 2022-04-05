@@ -13,7 +13,7 @@ const Service = (props) => {
     const { name, img, description, _id, price } = props.services;
     
     return (
-        <div className='col-lg-6'>
+        <div className='col-lg-6 col-md-8'>
           
             {/* <img src={img} alt="" />
     <h5> {name} </h5>

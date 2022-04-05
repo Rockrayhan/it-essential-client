@@ -3,15 +3,9 @@
 }
 
 
-.texty{
-    animation: texty 1s infinite;
+.manageProduct-body {
+    overflow: hidden;
 }
-
-@keyframes texty {
-    0% { color: rgb(255, 102, 0); }
-    50% { color: blue; }
-    100% { color: red; }
-  }
 
 
 

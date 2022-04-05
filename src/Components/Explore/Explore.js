@@ -16,7 +16,7 @@ const Explore = () => {
            <div className="container">
            <h1 className='mt-5'>Here is Our All Products</h1>
            <h6> (Same price same Quality)</h6>
-                <div className='service-card'>
+                <div className='row service-card justify-content-evenly ms-5'>
 
                         {
                             services.map(service => <Service

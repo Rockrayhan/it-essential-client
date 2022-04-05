@@ -32,22 +32,20 @@ const ManageProduct = () => {
             }
         });
 
-        }
-
-        
-    }
+        }        
+    }; 
 
 
     return (
-        <div>
+        <div className="manageProduct-body">
             <Navigation></Navigation>
             <h1 className='mt-5 mb-5'>
                 Welcome to Product Manager
             </h1>
-            <div className="service-card">
+            <div className="row ms-5">
 
             {
-                data.map(product => <div
+                data.map(product => <div className="col-lg-6 col-md-8"
                 key={product._id}
                 > 
 <Container>
@@ -72,8 +70,7 @@ const ManageProduct = () => {
       <CardActions>
         
         <Button onClick={() => handleDelete (product._id) }  variant='contained' sx={{mx:'auto'}} color="error">Delete</Button>
-        {/* <button
-                        onClick={() => handleDelete (product._id) } className="btn btn-danger"> Delete </button> */}
+        
       </CardActions>
     </Card>
     </Container>
