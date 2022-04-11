@@ -13,8 +13,7 @@ import Myorders from './Components/Dashboard/MyOrders/Myorders';
 import MakeAdmin from './Components/Dashboard/MakeAdmin/MakeAdmin';
 import AddProduct from './Components/Dashboard/AddProduct/AddProduct';
 import ManageProduct from './Components/Dashboard/ManageProduct/ManageProduct';
-import Login2 from './Components/NodeLogin/Login2';
-import Register2 from './Components/NodeLogin/Register2';
+
 
 function App() {
   return (
@@ -40,8 +39,6 @@ function App() {
     <Route path='login' element={<Login/>} />
     <Route path='register' element={<Register/>} />
 
-    <Route path='login2' element={<Login2/>} />
-    <Route path='register2' element={<Register2/>} />
 
 
       </Routes>
