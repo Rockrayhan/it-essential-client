@@ -31,7 +31,7 @@ const Purchase = () => {
 
   const [data, setData] = useState({})
   useEffect(() => {
-    fetch(`https://mysterious-scrubland-98995.herokuapp.com/services/${id}`)
+    fetch(`https://assaignment-13-server.vercel.app/services/${id}`)
       .then(res => res.json())
       .then(data => setData(data))
   }, []);
@@ -51,7 +51,7 @@ const Purchase = () => {
     }
     //send data to the server
     console.log(order);
-    fetch('https://mysterious-scrubland-98995.herokuapp.com/orders', {
+    fetch('https://assaignment-13-server.vercel.app/orders', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'

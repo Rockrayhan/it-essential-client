@@ -5,7 +5,7 @@ import Service from '../Service/Service';
 const Explore = () => {
     const[services,setServices] = useState([]) ;
     useEffect(  ()=>{
-        fetch('https://mysterious-scrubland-98995.herokuapp.com/services')
+        fetch('https://assaignment-13-server.vercel.app/services')
         .then(res=>res.json())
         .then(data=>setServices(data))
     } ,[])

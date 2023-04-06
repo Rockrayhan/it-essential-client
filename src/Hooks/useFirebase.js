@@ -84,7 +84,7 @@ const useFirebase = () => {
 
 
   useEffect(() => {
-      fetch(`https://mysterious-scrubland-98995.herokuapp.com/users/${user.email}`)
+      fetch(`https://assaignment-13-server.vercel.app/users/${user.email}`)
       .then (res => res.json())
       .then(data => setAdmin(data.admin))
   }, [user.email])
@@ -102,7 +102,7 @@ const useFirebase = () => {
 
   const saveUser = (email, displayName) => {
     const user = { email, displayName };
-    fetch('https://mysterious-scrubland-98995.herokuapp.com/users', {
+    fetch('https://assaignment-13-server.vercel.app/users', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'

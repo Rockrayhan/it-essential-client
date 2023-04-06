@@ -47,9 +47,9 @@ const Service = (props) => {
           {description}
         </Typography>
       </CardContent>
-      <CardActions>
-        <Link sx={{mx:'auto'}} to={`/purchase/${_id}`}>
-        <Button variant='contained'>Purchase</Button></Link>
+      <CardActions className='d-flex justify-content-center' >
+        <Link  to={`/purchase/${_id}`}>
+        <Button sx={{mx:'auto'}} variant='contained'>Purchase</Button></Link>
       </CardActions>
     </Card>
     

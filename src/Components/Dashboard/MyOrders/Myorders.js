@@ -10,7 +10,7 @@ const Myorders = () => {
 
 
     useEffect(() => {
-        const url = `https://mysterious-scrubland-98995.herokuapp.com/orders?email=${user.email}`
+        const url = `https://assaignment-13-server.vercel.app/orders?email=${user.email}`
         fetch(url)
             .then(res => res.json())
             .then(data => setOrders(data));

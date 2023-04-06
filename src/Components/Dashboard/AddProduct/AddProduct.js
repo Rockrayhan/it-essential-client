@@ -18,7 +18,7 @@ const AddProduct = () => {
         // formData.append('image',image);
     
 
-        axios.post('https://mysterious-scrubland-98995.herokuapp.com/services', data)
+        axios.post('https://assaignment-13-server.vercel.app/services', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('Product Added Successfully');

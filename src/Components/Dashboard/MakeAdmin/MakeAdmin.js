@@ -10,7 +10,7 @@ const MakeAdmin = () => {
 
     const handleAdminSubmit = e => {
         const user = {email} ;
-        fetch ('https://mysterious-scrubland-98995.herokuapp.com/users/admin' , {
+        fetch ('https://assaignment-13-server.vercel.app/users/admin' , {
             method: 'PUT',
             headers: {
                 'content-type' : 'application/json'

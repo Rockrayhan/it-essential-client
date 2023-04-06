@@ -14,7 +14,7 @@ const Payment = () => {
     const {orderId} = useParams();
     const [order, setOrder] = useState({});
     useEffect( ()=> {
-        fetch(`https://mysterious-scrubland-98995.herokuapp.com/orders/${orderId}`)
+        fetch(`https://assaignment-13-server.vercel.app/orders/${orderId}`)
         .then(res => res.json())
         .then(data => setOrder(data));
     } ,[orderId])

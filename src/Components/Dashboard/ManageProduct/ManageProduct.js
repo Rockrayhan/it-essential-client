@@ -6,7 +6,7 @@ const ManageProduct = () => {
 
     const [data, setData] = useState([])
     useEffect(  ()=>{
-        fetch('https://mysterious-scrubland-98995.herokuapp.com/services')
+        fetch('https://assaignment-13-server.vercel.app/services')
         .then(res=>res.json())
         .then(data=>setData(data))
     } ,[])
@@ -18,7 +18,7 @@ const ManageProduct = () => {
 
         if (proceed) {
             window.location.reload();
-            const url = `https://mysterious-scrubland-98995.herokuapp.com/services/${id}` ;
+            const url = `https://assaignment-13-server.vercel.app/services/${id}` ;
         fetch(url, {
             method: 'DELETE'
         })
