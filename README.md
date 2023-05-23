@@ -1,5 +1,5 @@
 # Welcome to - Cycle World
-This is an IT service giving Website
+This is an IT service providing Website
 
 
  live Client site link : https://it-essentials-47054.web.app/
